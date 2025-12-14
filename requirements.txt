@@ -4,8 +4,8 @@ torch
 torchvision
 fastapi
 uvicorn
-gunicorn
 python-multipart
+python-dotenv
 numpy
 pillow
 opencv-python-headless

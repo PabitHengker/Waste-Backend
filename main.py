@@ -6,7 +6,7 @@ from PIL import Image
 import io
 import uvicorn
 
-app = FastAPI()
+app = FastAPI(docs_url=None, redoc_url=None)
 
 # --- 1. SETUP KEAMANAN (API KEY) ---
 API_KEY_NAME = "x-api-key"
