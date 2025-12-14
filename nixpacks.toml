@@ -1,8 +1,13 @@
 [phases.setup]
-aptPkgs = ["libgl1", "libglib2.0-0"]
+# Kita paksa pakai Python 3.11 yang paling stabil untuk AI (3.13 terlalu baru & sering error library)
+nixPkgs = ["python311", "ffmpeg", "libglvnd", "glib"]
 
 [phases.install]
-cmds = ["python -m pip install -r requirements.txt"]
+cmds = [
+    "python -m pip install -r requirements.txt",
+    "python -m pip uninstall -y opencv-python",
+    "python -m pip install opencv-python-headless"
+]
 
 [start]
 cmd = "uvicorn main:app --host 0.0.0.0 --port $PORT"
